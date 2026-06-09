@@ -4,7 +4,9 @@ let
   dotfiles = "${config.home.homeDirectory}/Nix OS/config";
   createSymlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
-    # nvim = "neovim";
+    nvim = "neovim";
+    fastfetch = "fastfetch";
+    # fish = "fih";
   };
 in
 
@@ -13,10 +15,11 @@ in
   home.homeDirectory = "/home/Adsani";
   home.stateVersion = "26.05";
   home.packages = with pkgs; [
+    helium
+    neovim
     fd
     fzf
     lazygit
-    git
     kitty
     mpv
     libreoffice
@@ -28,31 +31,58 @@ in
     ripgrep
     nil
     nixpkgs-fmt
+    bat
+    # bitwarden-desktop
     ];
 
-  # Broken
-  # xdg.configFile = builtins.mapAttrs (name: subpath:{
-  #   source = createSymlink "${dotfiles}/${subpath}";
-  #   recursive = true;
-  # }) configs;
-  # Manual nvim
-  xdg.configFile."nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink "{config.home.homeDirectory}/Nix OS/config/neovim";
-  };
+  # All Regular config in ./config to symlink to ~/.config
+  # IMPORTANT. DON'T USE programs.enable IF THE DEFAULT CONFIG IS NOT DECLARED WITH NIX
+  xdg.configFile = builtins.mapAttrs (name: subpath:{
+    source = createSymlink "${dotfiles}/${subpath}";
+    recursive = true;
+  }) configs;
 
   programs = {
+    # neovim = {
+    #   enable = true;
+    #   viAlias = true;
+    #   vimAlias = true;
+    #   defaultEditor = true;
+    # };
+    git = {
+      enable = true;
+      settings = {
+        user.name = "Adsani";
+        user.email = "Adsani.ty@proton.me";
+      };
+    };
+    ssh = {
+      enable = true;
+      # settings = {
+      #   addKeysToAgent = "yes";
+      # };
+      addKeysToAgent = "yes";
+    };
     fish = {
       enable = true;
       interactiveShellInit = "set fish_greeting ''";
       shellAliases = {
         ls = "eza --icons --group-directories-first -1";
-        nrs = "sudo nixos-rebuild switch --flake ~/Nix OS#Adsani-NixOS";
       };
       shellAbbrs = {
         ll = "ls -l";
         lla = "ls -la";
-        la = "ls -a";
+        lsa = "ls -a";
       };
+      # function for yazi
+      functions.y = ''
+        set tmp (mktemp -t "yazi-cwd.XXXXXX")
+        command yazi $argv --cwd-file="$tmp"
+        if read -z cwd < "$tmp"; and [ "$cwd" != "$PWD" ]; and test -d "$cwd"
+          builtin cd -- "$cwd"
+        end
+        command rm -f -- "$tmp"
+      '';
     };
     starship = {
       enable = true;
@@ -60,16 +90,9 @@ in
         add_newline = true;
       };
     };
-    neovim = {
+    zoxide = {
       enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      extraPackages = with pkgs; [
-        lua-language-server
-        ansible-language-server
-        stylua
-      ];
-      plugins = with pkgs.vimPlugins; [ LazyVim ];
+      enableFishIntegration = true;
     };
   };
 }

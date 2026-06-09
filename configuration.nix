@@ -3,7 +3,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # booting stuff ------------------------------------------------------------
@@ -103,8 +103,8 @@
     dnscrypt-proxy = {
       enable = true;
       settings = {
-        server_names = [ "'cloudflare'" "'google'" "'cloudflare-ipv6'" "'google-ipv6'" ];
-        listen_addresses = [ "'127.0.0.1:53'" "'[::1]:53'" ];
+        server_names = [ "cloudflare" "google" "cloudflare-ipv6" "google-ipv6" ];
+        listen_addresses = [ "127.0.0.1:53" "[::1]:53" ];
         require_dnssec = false;
         require_nolog = true;
         require_nofilter = true;
@@ -154,6 +154,14 @@
     };
   };
   # End of Program ------------------------------------------------------------
+
+  # Environment Variables
+  environment = {
+    variables = {
+        EDITOR = "nvim";
+        VISUAL = "nvim";
+      };
+    };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.Adsani = {
