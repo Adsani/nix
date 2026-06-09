@@ -15,6 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
   outputs = inputs@{ self, nixpkgs, home-manager, helium, dms,  ... }: {
     nixosConfigurations.Adsani-NixOS = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -25,8 +26,7 @@
         }
         home-manager.nixosModules.home-manager {
           home-manager = {
-            extraSpecialArgs = {
-            };
+            extraSpecialArgs = {};
             useGlobalPkgs = true;
             useUserPackages = true;
             users.Adsani = import ./home.nix;

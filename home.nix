@@ -1,4 +1,5 @@
 { config, pkgs,  ... }:
+
 # Variables
 let
   dotfiles = "${config.home.homeDirectory}/Nix OS/config";
@@ -16,27 +17,36 @@ in
     homeDirectory = "/home/Adsani";
     stateVersion = "26.05";
     packages = with pkgs; [
+      # GUI Apps
       helium
-      neovim
-      fd
-      fzf
-      lazygit
       kitty
       mpv
+      localsend
       libreoffice
+      # bitwarden-desktop
+
+      # TUI Apps
+      neovim
+      lazygit
+      yazi
+
+      # CLI Apps
+      fd
+      fzf
       eza
       zoxide
-      yazi
-      localsend
       fastfetch
       starship
-      ripgrep
-      nil
-      nixpkgs-fmt
       bat
+      ripgrep
+
+      # Icons Apps
       papirus-icon-theme
       adwaita-icon-theme
-      # bitwarden-desktop
+
+      # Others
+      nil
+      nixpkgs-fmt
     ];
   };
   # Home Manager

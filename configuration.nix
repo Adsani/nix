@@ -12,8 +12,8 @@
       grub = {
         enable = true;
         useOSProber = true;
-	efiSupport = true;
-	device = "nodev";
+        efiSupport = true;
+        device = "nodev";
       };
     efi.canTouchEfiVariables = false;
     };
@@ -57,13 +57,14 @@
     priority = 100;
   };
 
-  # Virtualization (Podman)
+  # Virtualization 
   virtualisation = {
     libvirtd.enable = true;
     podman = {
       enable = true;
       dockerCompat = true;
     };
+    virtualbox.host.enable = true;
   };
 
   # XDG portal
@@ -76,7 +77,7 @@
   # Beginning services stuff ------------------------------------------------------------
   services = {
     # enable x11
-    xserver.enable = true; 
+    # xserver.enable = true; 
 
     # DMS Greeter (greetd)
     displayManager.dms-greeter = {
@@ -120,6 +121,7 @@
 
   # Programs stuff ------------------------------------------------------------
   programs = {
+
     # Window manager
     niri = {
       enable = true;
@@ -155,20 +157,21 @@
     };
   };
   # End of Program ------------------------------------------------------------
+  nixpkgs.config.permittedInescurePackages = [ "electron-39.8.10" ];
 
   # Environment Variables
   environment = {
     variables = {
-        EDITOR = "nvim";
-        VISUAL = "nvim";
-      };
+      EDITOR = "nvim";
+      VISUAL = "nvim";
     };
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.Adsani = {
     shell = pkgs.fish;
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "audio" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "libvirtd" "user-with-access-to-virtualbox" "wheel" "networkmanager" "video" "audio" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
