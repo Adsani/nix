@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs,  ... }:
 # Variables
 let
   dotfiles = "${config.home.homeDirectory}/Nix OS/config";
@@ -11,29 +11,38 @@ let
 in
 
 {
-  home.username = "Adsani";
-  home.homeDirectory = "/home/Adsani";
-  home.stateVersion = "26.05";
-  home.packages = with pkgs; [
-    helium
-    neovim
-    fd
-    fzf
-    lazygit
-    kitty
-    mpv
-    libreoffice
-    eza
-    zoxide
-    yazi
-    fastfetch
-    starship
-    ripgrep
-    nil
-    nixpkgs-fmt
-    bat
-    # bitwarden-desktop
+  home = {
+    username = "Adsani";
+    homeDirectory = "/home/Adsani";
+    stateVersion = "26.05";
+    packages = with pkgs; [
+      helium
+      neovim
+      fd
+      fzf
+      lazygit
+      kitty
+      mpv
+      libreoffice
+      eza
+      zoxide
+      yazi
+      localsend
+      fastfetch
+      starship
+      ripgrep
+      nil
+      nixpkgs-fmt
+      bat
+      papirus-icon-theme
+      adwaita-icon-theme
+      # bitwarden-desktop
     ];
+  };
+  # Home Manager
+  services = {
+    kdeconnect.enable = true;
+  };
 
   # All Regular config in ./config to symlink to ~/.config
   # IMPORTANT. DON'T USE programs.enable IF THE DEFAULT CONFIG IS NOT DECLARED WITH NIX
@@ -68,6 +77,7 @@ in
       interactiveShellInit = "set fish_greeting ''";
       shellAliases = {
         ls = "eza --icons --group-directories-first -1";
+        cat = "bat";
       };
       shellAbbrs = {
         ll = "ls -l";

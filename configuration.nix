@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
@@ -31,6 +31,11 @@
   networking = {
     hostName = "Adsani-NixOS"; # Hostname
     networkmanager.enable = true; # Make it false then wifi go bye bye
+    # KDE Connect
+    firewall = rec {
+      allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+      allowedUDPPortRanges = allowedTCPPortRanges;
+    };
   };
 
   # Bluetooth duh
@@ -124,6 +129,7 @@
     # Shell
     dms-shell = {
       enable = true;
+      package = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default;
       enableSystemMonitoring = true; # dgop
       enableVPN = true;
       enableDynamicTheming = true; # Matugen
@@ -138,11 +144,6 @@
 
     # fih
     fish.enable = true;
-
-    # Virtualisation
-
-    # Browse the internet, go wild I guess
-    firefox.enable = true;
 
     # nix ld for LazyVim
     nix-ld = {

@@ -10,8 +10,12 @@
       url = "github:schembriaiden/helium-browser-nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, nixpkgs, home-manager, helium,  ... }@inputs: {
+  outputs = inputs@{ self, nixpkgs, home-manager, helium, dms,  ... }: {
     nixosConfigurations.Adsani-NixOS = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -21,6 +25,8 @@
         }
         home-manager.nixosModules.home-manager {
           home-manager = {
+            extraSpecialArgs = {
+            };
             useGlobalPkgs = true;
             useUserPackages = true;
             users.Adsani = import ./home.nix;
@@ -28,6 +34,9 @@
           };
         }
       ];
+      specialArgs = {
+        inherit inputs;
+      };
     };
   };
 }
