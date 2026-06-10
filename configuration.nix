@@ -3,7 +3,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
+      ./hardware-configuration.nix
     ];
 
   # booting stuff ------------------------------------------------------------
@@ -157,8 +157,8 @@
     };
   };
   # End of Program ------------------------------------------------------------
-  nixpkgs.config.permittedInescurePackages = [ "electron-39.8.10" ];
 
+  nixpkgs.config.permittedInsecurePackages = [ "electron-39.8.10" ];
   # Environment Variables
   environment = {
     variables = {

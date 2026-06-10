@@ -23,7 +23,7 @@ in
       mpv
       localsend
       libreoffice
-      # bitwarden-desktop
+      bitwarden-desktop
 
       # TUI Apps
       neovim
@@ -32,6 +32,7 @@ in
 
       # CLI Apps
       fd
+      flatpak
       fzf
       eza
       zoxide
