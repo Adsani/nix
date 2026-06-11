@@ -116,6 +116,9 @@
         require_nofilter = true;
       };
     }; 
+    flatpak.enable = true;
+    # KDE Plasma (Backup Desktop)
+    desktopManager.plasma6.enable = true;
   };
   # End of services stuff
 
@@ -146,6 +149,20 @@
 
     # fih
     fish.enable = true;
+
+    # App image
+    appimage = {
+      enable = true;
+      binfmt = true;
+      package = pkgs.appimage-run.override {
+        extraPkgs = pkgs: [
+          pkgs.icu
+          pkgs.libxcrypt-legacy
+          pkgs.python312
+          pkgs.python312Packages.torch
+        ];
+      };
+    };
 
     # nix ld for LazyVim
     nix-ld = {

@@ -24,6 +24,7 @@ in
       localsend
       libreoffice
       bitwarden-desktop
+      nautilus
 
       # TUI Apps
       neovim
@@ -85,7 +86,7 @@ in
     };
     fish = {
       enable = true;
-      interactiveShellInit = "set fish_greeting ''";
+      interactiveShellInit = "set fish_greeting ''\n set -gx XDG_DATA_DIRS $XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
       shellAliases = {
         ls = "eza --icons --group-directories-first -1";
         cat = "bat";
