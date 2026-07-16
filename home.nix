@@ -8,6 +8,9 @@ let
    nvim = "neovim";
    fastfetch = "fastfetch";
    fish = "fih";
+   eza = "ls";
+   starship = "prompt";
+   yazi = "yazi";
  };
 in
 
