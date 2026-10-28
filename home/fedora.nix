@@ -5,10 +5,15 @@ let
   dotfiles = "${config.home.homeDirectory}/nix/config";
   createSymlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
-    nvim = "neovim";
+    btop = "btop";
     fastfetch = "fastfetch";
     fish = "fih";
+    kitty = "kitty";
+    lazygit = "lazygit";
     eza = "ls";
+    mpv = "mpv";
+    nvim = "neovim";
+    niri = "niri";
     starship = "prompt";
   };
 in

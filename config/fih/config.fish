@@ -26,6 +26,7 @@ if status is-interactive
     abbr la 'ls -a'
     abbr lsa 'ls -a'
     abbr lla 'ls -la'
+    abbr hms 'home-manager switch -b backup --flake ~/nix#adsani@Adsani-Fedora'
     # Commands to run in interactive sessions can go here
 end
 
