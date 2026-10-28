@@ -11,7 +11,8 @@ if status is-interactive
     set -gx VISUAL nvim
     set -gx STARSHIP_CONFIG ~/.config/starship/starship.toml
     set -gx EZA_CONFIG_DIR ~/.config/eza/catppuccin-mocha-blue.yml
-    set -gx SSH_AUTH_SOCK ~/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock # ~/.bitwarden-ssh-agent.sock # Native bitwarden app
+    set -gx SSH_AUTH_SOCK ~/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock # Flatpak app
+    # set -gx SSH_AUTH_SOCK ~/.bitwarden-ssh-agent.sock # Native bitwarden app. Choose one
 
     # Aliases
     alias ls 'eza --icons --group-directories-first -1'

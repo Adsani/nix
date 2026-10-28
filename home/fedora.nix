@@ -15,6 +15,7 @@ let
     nvim = "neovim";
     niri = "niri";
     starship = "prompt";
+    superfile = "superfile";
   };
 in
 
@@ -28,7 +29,8 @@ in
     homeDirectory = "/home/adsani";
     stateVersion = "25.11";
     packages = with pkgs; [
-     # home-manager
+      superfile
+      # home-manager
     ];
   };
   programs.home-manager.enable = true;
