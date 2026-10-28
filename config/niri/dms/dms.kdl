@@ -1,0 +1,9 @@
+// Add to the end of ~/.config/niri/config.kdl
+include "colors.kdl"
+include "layout.kdl"
+include "alttab.kdl"
+include "binds.kdl"
+include "cursor.kdl"
+include "outputs.kdl"
+include "windowrules.kdl"
+include "wpblur.kdl"

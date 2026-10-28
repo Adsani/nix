@@ -1,0 +1,107 @@
+input {
+    keyboard {
+        xkb {
+        }
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse {
+    }
+
+    trackpoint {
+    }
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+output "eDP-1" {
+  mode "1920x1080@60.049"
+  scale 1
+}
+
+cursor {
+  xcursor-theme "Future-cyan Cursors"
+  xcursor-size 24
+}
+
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    GTK_CURSOR_THEME "Future-cyan Cursors"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+}
+
+layout {
+    // Set gaps around windows in logical pixels.
+    gaps 16
+    always-center-single-column
+    center-focused-column "never"
+    preset-column-widths {
+        proportion 0.33333 // 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width { proportion 0.75; }
+    focus-ring {
+        width 4
+        active-color "#7fc8ff"
+        inactive-color "#505050"
+    }
+
+    border {
+        off
+        width 4
+        active-color "#ffc87f"
+        inactive-color "#505050"
+        urgent-color "#9b0000"
+    }
+
+    shadow {
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#0007"
+    }
+
+    struts {
+    }
+}
+
+gestures {
+  hot-corners {
+    off
+  }
+}
+// spawn-at-startup "dms" "run" // I switch it to systemd service to see if it fix missing tray icon during startup
+prefer-no-csd
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+animations {
+}
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
+
+// Noctalia
+// include "./noctalia/noctalia.kdl"
+include "./dms/dms.kdl"
+include "rules.kdl"
+include "binds.kdl"
+include "dms/cursor.kdl"
+include "dms/layout.kdl"
+include "dms/binds.kdl"
+include "dms/windowrules.kdl"
+include "dms/outputs.kdl"
+include "animations.kdl"
+include "dms/input.kdl"

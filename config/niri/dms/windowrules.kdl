@@ -1,0 +1,80 @@
+// DMS Window Rules - Managed by Dux Shell
+// Do not edit manually - changes may be overwritten
+
+// @id=dms-floating-windows @name=DMS Floating Windows
+window-rule {
+    match app-id="^(dev\\.duxlabs\\.shell|com\\.danklinux\\.dms)$"
+    open-floating true
+}
+
+// @id=wr_1788863318300943398 @name=PPSSPPSDL
+window-rule {
+    match app-id="^PPSSPPSDL$"
+    open-maximized true
+}
+
+// @id=wr_1789019099089800579 @name=Bitwarden
+window-rule {
+    match app-id="^Bitwarden$" is-floating=false
+    open-floating true
+}
+
+// @id=wr_1789020853338744623 @name=org.gnome.Loupe
+window-rule {
+    match app-id="^org.gnome.Loupe$"
+    open-floating true
+}
+
+// @id=wr_1789195740793997838 @name=winboat-Microsoft Word
+window-rule {
+    match app-id="^winboat-Microsoft Word$"
+    open-maximized true
+}
+
+// @id=wr_1789990226188061262 @name=gcr-prompter
+window-rule {
+    match app-id="^gcr-prompter$"
+    default-floating-position x=0 y=0
+}
+
+// @id=wr_1789990792865407779 @name=brave-origin
+window-rule {
+    match app-id="^brave-origin$"
+}
+
+// @id=wr_1789991955954916103 @name=vesktop
+window-rule {
+    match app-id="^vesktop$"
+    opacity 0.85
+}
+
+// @id=wr_1789992350329235874 @name=com.shellyorg.shelly
+window-rule {
+    match app-id="^com.shellyorg.shelly$"
+    opacity 0.85
+    open-floating true
+}
+
+// @id=wr_1789997541966014673 @name=pcsx2-qt
+window-rule {
+    match app-id="^pcsx2-qt$" title="^PCSX2 v2.8.2$"
+    opacity 0.85
+}
+
+// @id=wr_1790298679938504343 @name=brave-origin
+window-rule {
+    match app-id="^brave-origin$" title="^Meet$"
+    open-floating true
+}
+
+// @id=wr_1791184818711182520 @name=VirtualBox Machine
+window-rule {
+    match app-id="^VirtualBox Machine$" title="^Winslop [Running] - Oracle VirtualBox$"
+    open-maximized true
+}
+
+// @id=dms-window-opaque @name=DMS Window Opaque
+window-rule {
+    match app-id="^(dev\\.duxlabs\\.shell|com\\.danklinux\\.dms)$"
+    opacity 1.00
+}

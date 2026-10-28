@@ -1,0 +1,81 @@
+workspace "main"
+workspace "gaming"
+window-rule {
+  match app-id=r#"steam$"#
+  open-on-workspace "gaming"
+}
+window-rule {
+  geometry-corner-radius 12
+  clip-to-geometry true
+}
+window-rule {
+  match app-id="brave-origin" 
+  open-maximized true
+}
+window-rule {
+  match app-id=r#"mpv$"# 
+  open-fullscreen true
+}
+window-rule {
+  match app-id=r#"Nautilus$"#
+  open-floating true
+  default-column-width { proportion 0.5; }
+  default-window-height { proportion 0.8; }
+}
+window-rule {
+  match app-id="yazi"
+  open-floating true
+  default-column-width { proportion 0.5; }
+  default-window-height { proportion 0.8; }
+}
+// Make scrcpy window tiled to exactly the screen phone size
+window-rule {
+  match app-id="scrcpy"
+  default-column-width { fixed 455;}
+  default-window-height { fixed 1013;}
+}
+/* Apps: blur them all without xray so it looks more realistic. */
+window-rule {
+  background-effect {
+    blur true
+    xray false
+  }
+}
+
+window-rule {
+  match app-id=r"org.kde.kdeconnect.daemon" // ID of presentation pointer overlay
+  open-floating true
+  open-fullscreen false
+  default-floating-position x=0 y=0 relative-to="top-left"
+
+  // Adjust these to your monitor's resolution
+  min-width 1920
+  min-height 1080
+
+  // Optionally customize opacity of pointer
+  // opacity 1.0
+
+  tiled-state true
+
+  focus-ring {
+    off
+  }
+  border {
+    off
+  }
+  shadow {
+    off
+  }
+  draw-border-with-background false
+  background-effect{
+    blur false
+  }
+}
+
+/* You can also fine-tune the blur effect globally. */
+blur {
+  passes 2        // more passes = stronger blur (default: 3)
+  offset 3.0      // sample distance per pass (default: 3.0)
+  noise 0.03      // grain overlay (default: 0.02)
+  saturation 1.0  // color saturation boost (default: 1.5)
+}

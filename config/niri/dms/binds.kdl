@@ -1,0 +1,23 @@
+binds {
+    Ctrl+Print hotkey-overlay-title="Screenshot: Full Screen" { spawn "dms" "ipc" "call" "niri" "screenshotScreen"; }
+    Mod+Alt+L hotkey-overlay-title="Lock Screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
+    Mod+Alt+space hotkey-overlay-title="Open DankMenu overview" { spawn "sh" "-c" "dms ipc call dankMenu toggle root"; }
+    Mod+Comma hotkey-overlay-title="Settings: Toggle" { spawn "dms" "ipc" "call" "settings" "toggle"; }
+    Mod+N hotkey-overlay-title="Notifications: Toggle" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
+    Mod+P hotkey-overlay-title="Clipboard: Toggle" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    Mod+S { spawn "sh" "-c" "dms ipc window-rules toggle"; }
+    Mod+Shift+Escape hotkey-overlay-title="Task Manager: Toggle" { spawn "dms" "ipc" "call" "processlist" "toggle"; }
+    Mod+Shift+S hotkey-overlay-title="Snipping tool" { spawn "sh" "-c" "dms ipc call screenshotPlus capture"; }
+    Mod+Shift+Slash hotkey-overlay-title="Keybinds Cheatsheet: Toggle" { spawn "dms" "ipc" "call" "keybinds" "toggle" "niri"; }
+    Mod+Shift+Y hotkey-overlay-title="Wallpaper Carousel previous" { spawn "sh" "-c" "dms ipc wallpaperCarousel cyclePrevious"; }
+    Mod+X { spawn "sh" "-c" "dms ipc call fullscreenPowerMenu toggle"; }
+    Mod+Y hotkey-overlay-title="Wallpaper Carousel next" { spawn "sh" "-c" "dms ipc wallpaperCarousel cycleNext"; }
+    Mod+space hotkey-overlay-title="Default Launcher: Toggle" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+    Print hotkey-overlay-title="Open Screenshot Menu" { spawn "sh" "-c" "dms ipc call screenCaptureToolbar toggle"; }
+    XF86AudioLowerVolume hotkey-overlay-title="Volume Down (5%)" { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
+    XF86AudioMute hotkey-overlay-title="Volume Mute Toggle" { spawn "dms" "ipc" "call" "audio" "mute"; }
+    XF86AudioRaiseVolume hotkey-overlay-title="Volume Up (5%)" { spawn "dms" "ipc" "call" "audio" "increment" "5"; }
+    XF86MonBrightnessDown hotkey-overlay-title="Brightness Down (5%)" { spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""; }
+    XF86MonBrightnessUp hotkey-overlay-title="Brightness Up (5%)" { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
+    Mod+B { spawn "brave-origin"; }
+}

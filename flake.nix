@@ -12,13 +12,13 @@
     nixosConfigurations.Adsani-NixOS = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./configuration.nix
+        ./hosts/nixos/configuration.nix
         home-manager.nixosModules.home-manager {
           home-manager = {
-            extraSpecialArgs = {};
+            extraSpecialArgs = { inherit inputs; };
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.Adsani = import ./home.nix;
+            users.Adsani = import ./home/nixos.nix;
             backupFileExtension = "backup";
           };
         }
@@ -26,6 +26,18 @@
       specialArgs = {
         inherit inputs;
       };
+    };
+
+    homeConfigurations."adsani@Adsani-Fedora" = home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+      };
+      extraSpecialArgs = {
+        inherit inputs;
+      };
+      modules = [
+        ./home/fedora.nix
+      ];
     };
   };
 }

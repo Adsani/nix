@@ -1,0 +1,23 @@
+binds {
+  Print { spawn-sh "noctalia msg screenshot-region"; }
+  XF86SelectiveScreenshot { spawn-sh "noctalia msg screenshot-region"; }
+  Ctrl+Print { spawn-sh "noctalia msg screenshot-fullscreen"; }
+  Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
+  Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
+  Mod+X hotkey-overlay-title="Open power option" { spawn-sh "noctalia msg panel-toggle session"; }
+  Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
+  Alt+Tab { spawn-sh "noctalia msg window-switcher"; }
+  Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg session lock-and-suspend"; }
+  XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
+  XF86AudioLowerVolume { spawn-sh "noctalia msg volume-down"; }
+  XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }
+  XF86AudioMicMute { spawn-sh "noctalia msg mic-mute"; }
+  XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
+  XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
+  // Wallpaper
+  Mod+Y { spawn-sh "noctalia msg wallpaper-next"; }
+  Mod+Shift+Y { spawn-sh "noctalia msg wallpaper-previous"; }
+
+  // Notification and dnd
+  Mod+N hotkey-overlay-title="Show Notification Tray" { spawn-sh "noctalia msg panel-toggle control-center notifications"; }
+}

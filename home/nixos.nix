@@ -2,16 +2,16 @@
 
 # Variables
 let
- dotfiles = "${config.home.homeDirectory}/Nix/config";
- createSymlink = path: config.lib.file.mkOutOfStoreSymlink path;
- configs = {
-   nvim = "neovim";
-   fastfetch = "fastfetch";
-   fish = "fih";
-   eza = "ls";
-   starship = "prompt";
-   yazi = "yazi";
- };
+  dotfiles = "${config.home.homeDirectory}/Nix/config";
+  createSymlink = path: config.lib.file.mkOutOfStoreSymlink path;
+  configs = {
+    nvim = "neovim";
+    fastfetch = "fastfetch";
+    fish = "fih";
+    eza = "ls";
+    starship = "prompt";
+    yazi = "yazi";
+  };
 in
 
 {
@@ -21,11 +21,8 @@ in
     stateVersion = "26.05";
     packages = with pkgs; [
       # GUI Apps
-      brave
-      kitty
-      mpv
-      localsend
       libreoffice
+      localsend
 
       # TUI Apps
       neovim
@@ -33,22 +30,7 @@ in
       yazi
 
       # CLI Apps
-      fd
       flatpak
-      fzf
-      eza
-      zoxide
-      fastfetch
-      starship
-      bat
-      ripgrep
-
-      # Icons Apps
-      papirus-icon-theme
-
-      # Others
-      nil
-      nixpkgs-fmt
     ];
   };
   # Home Manager
