@@ -6,6 +6,7 @@ let
   createSymlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
     btop = "btop";
+    dms = "dms";
     fastfetch = "fastfetch";
     fish = "fih";
     kitty = "kitty";
@@ -29,7 +30,6 @@ in
     homeDirectory = "/home/adsani";
     stateVersion = "25.11";
     packages = with pkgs; [
-      superfile
       # home-manager
     ];
   };
@@ -39,4 +39,5 @@ in
     source = createSymlink "${dotfiles}/${subpath}";
     recursive = true;
   }) configs;
+  xdg.dataFile."icons/Future-cyan-cursors".source = ../config/Future-cyan-cursors;
 }

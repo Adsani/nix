@@ -4,6 +4,7 @@
 // ! PLACE YOUR CUSTOM CONFIGURATION ELSEWHERE !
 
 input {
+    focus-follows-mouse max-scroll-amount="0%"
     mouse {
         accel-speed 0.0
     }

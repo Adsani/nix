@@ -100,7 +100,7 @@ binds {
   // Change window position and size
   Mod+BracketLeft  { consume-or-expel-window-left; }
   Mod+BracketRight { consume-or-expel-window-right; }
-  Mod+Period { expel-window-from-column; }
+  // Mod+Period { expel-window-from-column; }
   Mod+R { switch-preset-column-width; }
   Mod+Shift+R { switch-preset-column-width-back; }
   Mod+Ctrl+Shift+R { switch-preset-window-height; }
@@ -119,7 +119,7 @@ binds {
   Mod+Ctrl+F { expand-column-to-available-width; }
 
   // floating window
-  Mod+V       { toggle-window-floating; }
+  Mod+Shift+T       { toggle-window-floating; }
   Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
   Mod+W { toggle-column-tabbed-display; }

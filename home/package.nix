@@ -5,6 +5,7 @@
     # TUI Apps
     neovim
     lazygit
+    superfile
 
     # CLI Apps
     fd

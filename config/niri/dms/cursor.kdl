@@ -4,6 +4,6 @@
 // ! PLACE YOUR CUSTOM CONFIGURATION ELSEWHERE !
 
 cursor {
-    xcursor-theme "Future-cyan Cursors"
+    xcursor-theme "Future-cyan-cursors"
     xcursor-size 24
 }

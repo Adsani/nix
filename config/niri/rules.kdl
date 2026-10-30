@@ -1,5 +1,5 @@
-workspace "main"
-workspace "gaming"
+workspace "Main"
+workspace "Gaming"
 window-rule {
   match app-id=r#"steam$"#
   open-on-workspace "gaming"
@@ -40,6 +40,15 @@ window-rule {
     blur true
     xray false
   }
+}
+layer-rule {
+  match namespace="^quickshell$"
+  place-within-backdrop true
+}
+
+layer-rule {
+  match namespace="dms:blurwallpaper"
+  place-within-backdrop true
 }
 
 window-rule {
