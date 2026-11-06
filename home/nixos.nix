@@ -1,36 +1,37 @@
-{ config, pkgs,  ... }:
+{ config, pkgs, ... }:
 
 # Variables
 let
-  dotfiles = "${config.home.homeDirectory}/Nix/config";
+  dotfiles = "${config.home.homeDirectory}/nix/config";
   createSymlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
-    nvim = "neovim";
+    btop = "btop";
+    dms = "dms";
     fastfetch = "fastfetch";
     fish = "fih";
+    kitty = "kitty";
+    lazygit = "lazygit";
     eza = "ls";
+    mpv = "mpv";
+    nvim = "neovim";
+    niri = "niri";
     starship = "prompt";
-    yazi = "yazi";
+    superfile = "superfile";
   };
 in
 
 {
+  imports = [
+    ./package.nix
+  ];
+
   home = {
-    username = "Adsani";
-    homeDirectory = "/home/Adsani";
+    username = "adsani";
+    homeDirectory = "/home/adsani";
     stateVersion = "26.05";
     packages = with pkgs; [
-      # GUI Apps
-      libreoffice
-      localsend
-
-      # TUI Apps
+      fish # Since I use symlink, I only need the binary
       neovim
-      lazygit
-      yazi
-
-      # CLI Apps
-      flatpak
     ];
   };
   # Home Manager

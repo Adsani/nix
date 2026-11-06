@@ -6,6 +6,6 @@
   security.pam.services = {
     login.fprintAuth = true;
     sudo.fprintAuth = true;
-    plasmalogin.fprintAuth = true;
+    greetd.fprintAuth = true;
   };
 }

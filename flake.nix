@@ -6,6 +6,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Noctalia doesn't recommend adding inputs.nixpkgs.follows for cache hit
+    noctalia.url = "github:noctalia-dev/noctalia";
+    umbriel.url = "github:noctalia-dev/umbriel";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
@@ -18,7 +21,7 @@
             extraSpecialArgs = { inherit inputs; };
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.Adsani = import ./home/nixos.nix;
+            users.adsani = import ./home/nixos.nix;
             backupFileExtension = "backup";
           };
         }

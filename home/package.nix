@@ -25,4 +25,5 @@
     nil
     nixpkgs-fmt
   ];
+  programs.kdeconnect.enable = true;
 }
