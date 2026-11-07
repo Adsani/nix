@@ -11,8 +11,12 @@
         extraEntries = ''
           /Windows
               protocol: efi
-              path: uuid(REPLACE-WITH-WINDOWS-ESP-PARTUUID):/EFI/Microsoft/Boot/bootmgfw.efi
+              path: uuid(d22fe110-2577-4002-a8a9-65ad63dc4db1):/EFI/Microsoft/Boot/bootmgfw.efi
         '';
+        style = {
+          wallpapers = [];
+          interface.branding = "Adsani's Thinkpad T14 G2i Boot Menu";
+        };
       };
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot/efi";

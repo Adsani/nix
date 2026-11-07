@@ -28,6 +28,7 @@ if status is-interactive
     abbr lsa 'ls -a'
     abbr lla 'ls -la'
     abbr hms 'home-manager switch -b backup --flake ~/nix#adsani@Adsani-Fedora'
+    abbr nrs 'sudo nixos-rebuild switch --flake ~/nix#Adsani-NixOS'
     # Commands to run in interactive sessions can go here
 end
 

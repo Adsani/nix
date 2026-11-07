@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  users.users.Adsani = {
+  users.users.adsani = {
     isNormalUser = true;
     shell = pkgs.fish;
     extraGroups = [

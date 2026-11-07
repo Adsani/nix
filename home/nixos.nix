@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 # Variables
 let
@@ -17,6 +17,7 @@ let
     niri = "niri";
     starship = "prompt";
     superfile = "superfile";
+    umbriel = "umbriel";
   };
 in
 

@@ -14,45 +14,25 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/96c84884-5c9a-4585-83b5-11f9950b885b";
+    { device = "/dev/disk/by-uuid/23c0a74c-5bfa-4ad9-87eb-3b63b8a85d4c";
       fsType = "btrfs";
-      options = [ "subvol=@" ];
-    };
-
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/96c84884-5c9a-4585-83b5-11f9950b885b";
-      fsType = "btrfs";
-      options = [ "subvol=@home" ];
-    };
-
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/96c84884-5c9a-4585-83b5-11f9950b885b";
-      fsType = "btrfs";
-      options = [ "subvol=@nix" ];
-    };
-
-  fileSystems."/swap" =
-    { device = "/dev/disk/by-uuid/96c84884-5c9a-4585-83b5-11f9950b885b";
-      fsType = "btrfs";
-      options = [ "subvol=@swap" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/540C-26DD";
+    { device = "/dev/disk/by-uuid/9A2B-DD2F";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
   fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/D27F-FAFF";
+    { device = "/dev/disk/by-uuid/AAAA-232D";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/mnt/Data" =
-    { device = "/dev/disk/by-uuid/107C05F37C05D47E";
-      fsType = "ntfs-3g";
-      options = [ "rw" "uuid=1000" "gid=1000" "umask=022" "windows_names" ];
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/68e18ebf-c03e-4a3f-8f7e-6b470d02641a";
+      fsType = "btrfs";
     };
 
   swapDevices = [ ];

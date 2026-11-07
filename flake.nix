@@ -15,7 +15,7 @@
     nixosConfigurations.Adsani-NixOS = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./hosts/nixos/configuration.nix
+        ./hosts/Adsani-NixOS
         home-manager.nixosModules.home-manager {
           home-manager = {
             extraSpecialArgs = { inherit inputs; };
