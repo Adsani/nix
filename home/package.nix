@@ -19,6 +19,8 @@
     ripgrep
     tldr
     figlet
+    tree
+    rustup
 
     # Icons Apps
     papirus-icon-theme
@@ -29,10 +31,17 @@
 
     kitty
     goverlay
+    # (discord.override {
+    #   withVencord = true;
+    # })
+    vesktop
+    python3
+    zenity
   ];
   # programs.kdeconnect.enable = true;
   programs = {
-    firefox.enable = true;
+    # firefox.enable = true;
     mangohud.enable = true;
+    uv.enable = true;
   };
 }
