@@ -17,6 +17,7 @@ let
     niri = "niri";
     starship = "prompt";
     superfile = "superfile";
+    umbriel = "umbriel";;
   };
 in
 

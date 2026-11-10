@@ -23,10 +23,10 @@ output "eDP-1" {
   scale 1
 }
 
-cursor {
-  xcursor-theme "Future-cyan Cursors"
-  xcursor-size 24
-}
+// cursor plugin: cursor {
+// cursor plugin:   xcursor-theme "Future-cyan Cursors"
+// cursor plugin:   xcursor-size 24
+// cursor plugin: }
 
 environment {
     ELECTRON_OZONE_PLATFORM_HINT "auto"
@@ -105,3 +105,6 @@ include "dms/windowrules.kdl"
 include "dms/outputs.kdl"
 include "animations.kdl"
 include "dms/input.kdl"
+
+// Managed by the Noctalia cursor plugin - edits here are overwritten.
+include "cursor.kdl"

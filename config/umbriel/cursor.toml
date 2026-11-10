@@ -1,0 +1,10 @@
+# Managed by the Noctalia cursor plugin - edits here are overwritten.
+[input.cursor]
+theme = "Future-cyan-Cursors"
+size = 24
+hide_when_typing = false
+hide_timeout_ms = 0
+
+[environment]
+XCURSOR_THEME = "Future-cyan-Cursors"
+XCURSOR_SIZE = "24"
