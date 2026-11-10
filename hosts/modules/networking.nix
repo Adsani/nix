@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 let
   kdeConnectPorts = [ { from = 1714; to = 1764; } ];
@@ -8,9 +8,9 @@ in
     hostName = "Adsani-NixOS";
     networkmanager = {
       enable = true;
-      dns = "none"; # let dnscrypt-proxy own DNS
+      dns = "systemd-resolved"; 
+      plugins = with pkgs; [ networkmanager-openvpn ];
     };
-    nameservers = [ "127.0.0.1" "::1" ];
 
     firewall = {
       allowedTCPPortRanges = kdeConnectPorts; # KDE Connect
@@ -18,14 +18,12 @@ in
     };
   };
 
-  services.dnscrypt-proxy = {
+  services.resolved = {
     enable = true;
-    settings = {
-      server_names = [ "cloudflare" "google" "cloudflare-ipv6" "google-ipv6" ];
-      listen_addresses = [ "127.0.0.1:53" "[::1]:53" ];
-      require_dnssec = false;
-      require_nolog = true;
-      require_nofilter = true;
+    settings.Resolve = {
+      DNSOverTLS = "opportunistic";
+      DNSSEC = "allow-downgrade";
+      FallbackDNS = [ "1.1.1.1" "8.8.8.8" ];
     };
   };
 }
